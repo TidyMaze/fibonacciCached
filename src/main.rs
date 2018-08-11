@@ -16,7 +16,9 @@ impl Fib {
         match found {
             Some(&v) => (v, (*self).clone()),
             None => {
-                let (res, f_res) = if n <= 1 {
+                let (res, f_res) = if n == 0 {
+                    (0, (*self).clone())
+                } else if n == 1 {
                     (1, (*self).clone())
                 } else {
                     let (a, f1) = self.calc(n - 2);
